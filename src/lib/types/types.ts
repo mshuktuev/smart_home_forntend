@@ -1,58 +1,73 @@
-import type { CreateQueryResult } from '@tanstack/svelte-query';
-import type { Writable } from 'svelte/store';
+import type { CreateQueryResult } from '@tanstack/svelte-query'
+import type { Writable } from 'svelte/store'
 
 export interface IAuthContext {
-	isAuth: Writable<boolean>;
+	isAuth: Writable<boolean>
 	login: (
 		email: string,
-		password: string
+		password: string,
 	) => Promise<{
-		success: boolean;
-	}>;
-	logout: () => void;
-	authQueryData: CreateQueryResult;
+		success: boolean
+	}>
+	logout: () => void
+	authQueryData: CreateQueryResult
 }
 
 export interface ISpace {
-	id: number;
-	name: string;
+	id: number
+	name: string
 }
 
 export interface IHouse {
-	id: number;
-	name: string;
+	id: number
+	name: string
 }
 
 export interface IRoom {
-	id: number;
-	name: string;
+	id: number
+	name: string
 }
 
 export interface IDevice {
-	id: number;
-	name: string;
-	type: string;
-	enabled: boolean;
-	active: boolean;
-	temperature?: number;
-	room_id?: number;
-	warning?: boolean;
+	id: number
+	name: string
+	type: string
+	enabled: boolean
+	active: boolean
+	temperature?: number
+	room_id?: number
+	warning?: boolean
 }
 
 export interface IRoomWithDevices extends IRoom {
-	devices: IDevice[];
+	devices: IDevice[]
 }
 
 export interface ISpaceWithRooms extends ISpace {
-	houses: IHouse[];
+	houses: IHouse[]
 }
 
 export interface ISelectedStore {
-	selectedSpace: Writable<number | null>;
-	selectedHouse: Writable<number | null>;
+	selectedSpace: Writable<number | null>
+	selectedHouse: Writable<number | null>
 }
 
 export interface ISelectedDataStore {
-	selectedSpaceData: Writable<ISpace | null>;
-	selectedHouseData: Writable<IHouse | null>;
+	selectedSpaceData: Writable<ISpace | null>
+	selectedHouseData: Writable<IHouse | null>
+}
+
+export interface IModalSettings {
+	show: ({}: {
+		variant: 'create' | 'edit' | 'delete' | null
+		type: 'space' | 'house' | 'room' | 'device' | null
+		initialData?: any
+	}) => void
+	close: () => void
+}
+
+export interface IModalShowParams {
+	variant: 'create' | 'edit' | 'delete' | null
+	type: 'space' | 'house' | 'room' | 'device' | null
+	initialData: any
 }
