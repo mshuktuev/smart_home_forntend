@@ -10,14 +10,14 @@
 
 	const queryClient = new QueryClient();
 
-	import { io } from 'socket.io-client';
+	// import { io } from 'socket.io-client';
 
-	const socket = io('http://localhost:1337', {
-		path: '/socket.io/',
-	});
-	socket.on('room', (e) => {
-		console.log(e);
-	});
+	// const socket = io('http://localhost:1337', {
+	// 	path: '/socket.io/',
+	// });
+	// socket.on('room', (e) => {
+	// 	console.log(e);
+	// });
 </script>
 
 <Router>
