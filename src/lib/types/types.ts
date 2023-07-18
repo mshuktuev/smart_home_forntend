@@ -30,7 +30,7 @@ export interface IRoom {
 
 export interface IDevice {
 	id: number
-	name: string
+	name?: string
 	type: string
 	enabled: boolean
 	active: boolean
