@@ -10,19 +10,18 @@ export const variantsValues = {
 }
 
 export const typesValues = {
-	space: {
-		name: {
-			placeholder: 'Название',
-		},
-	},
 	house: {
 		name: {
 			placeholder: 'Название',
 		},
 	},
-	room: {
+	rooms: {
 		name: {
 			placeholder: 'Название',
+		},
+		house_id: {
+			select: true,
+			placeholder: 'Дом',
 		},
 	},
 	device: {
@@ -31,6 +30,7 @@ export const typesValues = {
 		},
 		type: {
 			placeholder: 'Тип',
+			select: true,
 		},
 	},
 }
@@ -40,4 +40,9 @@ export const typesTranslate = {
 	house: 'квартира',
 	room: 'комната',
 	device: 'устройство',
+
+	spaces: 'область',
+	houses: 'квартиру',
+	rooms: 'комнату',
+	devices: 'устройство',
 }

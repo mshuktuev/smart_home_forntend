@@ -26,14 +26,17 @@ export interface IHouse {
 export interface IRoom {
 	id: number
 	name: string
+	house_id: number
 }
 
 export interface IDevice {
 	id: number
-	name?: string
+	name: string
 	type: string
 	enabled: boolean
 	active: boolean
+	x: number
+	y: number
 	temperature?: number
 	room_id?: number
 	warning?: boolean
@@ -60,14 +63,15 @@ export interface ISelectedDataStore {
 export interface IModalSettings {
 	show: ({}: {
 		variant: 'create' | 'edit' | 'delete' | null
-		type: 'space' | 'house' | 'room' | 'device' | null
+		type: 'space' | 'house' | 'rooms' | 'device' | null
 		initialData?: any
 	}) => void
 	close: () => void
+	refetchSpaces: () => void
 }
 
 export interface IModalShowParams {
 	variant: 'create' | 'edit' | 'delete' | null
-	type: 'space' | 'house' | 'room' | 'device' | null
+	type: 'space' | 'house' | 'rooms' | 'device' | null
 	initialData: any
 }

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { onMount } from 'svelte';
 
 	export let values: { name: string; id: number }[];
 	export let selectedValue: number;
@@ -9,6 +10,10 @@
 	const handleSelect = (id) => {
 		dispatch('select', id);
 	};
+
+	onMount(() => {
+		dispatch('select', selectedValue);
+	});
 </script>
 
 <select class="select pr-0" on:change={(e) => handleSelect(e.currentTarget.value)}>

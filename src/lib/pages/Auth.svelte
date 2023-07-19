@@ -28,7 +28,6 @@
 		try {
 			const data = schema.parse(formData);
 			const result = await login(data.email, data.password);
-			console.log(result);
 
 			if (!result.success) {
 				errorMessages.global = 'Неправильный логин или пароль';
@@ -38,7 +37,6 @@
 				for (const issue of error.issues) {
 					errorMessages[issue.path[0]] = issue.message;
 				}
-				console.log(error.issues);
 			}
 		}
 	};

@@ -27,7 +27,6 @@
 		if (result.data.success) {
 			client.invalidateQueries(['auth']);
 			isAuth.set(true);
-			console.log(result.data);
 
 			localStorage.setItem('token', result.data.data.access_token);
 		}
@@ -36,11 +35,7 @@
 	};
 
 	const logout = () => {};
-	$: console.log($isAuth);
-
 	authQuery.subscribe(({ data }) => {
-		console.log(data);
-
 		if (data?.success) {
 			isAuth.set(true);
 		}

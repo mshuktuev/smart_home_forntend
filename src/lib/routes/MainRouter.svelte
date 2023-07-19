@@ -8,7 +8,6 @@
 	const location = useLocation();
 
 	const { isAuth, authQueryData } = getContext<IAuthContext>('auth');
-	$: console.log($location);
 </script>
 
 {#if !$authQueryData.isLoading}
